@@ -4,7 +4,9 @@
   "name": "obj_mob",
   "eventList": [],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_with_radius","path":"objects/obj_with_radius/obj_with_radius.yy",},"propertyId":{"name":"radius","path":"objects/obj_with_radius/obj_with_radius.yy",},"value":"8",},
+  ],
   "parent": {
     "name": "Objects",
     "path": "folders/Objects.yy",
@@ -16,12 +18,12 @@
   "persistent": false,
   "physicsAngularDamping": 0.0,
   "physicsDensity": 0.1,
-  "physicsFriction": 0.0,
+  "physicsFriction": 0.05,
   "physicsGroup": 1,
   "physicsKinematic": false,
   "physicsLinearDamping": 0.0,
   "physicsObject": true,
-  "physicsRestitution": 1.0,
+  "physicsRestitution": 0.9,
   "physicsSensor": false,
   "physicsShape": 1,
   "physicsShapePoints": [

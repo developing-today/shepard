@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_shepard_respawn_text",
+  "name": "obj_shepard_spawn_text",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],

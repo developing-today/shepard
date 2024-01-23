@@ -5,7 +5,8 @@ function create_shepard(){
 		fuel_follow = false
 		portal_follow = false
 	}
-	
+	view_visible[3] = true
+
 	instance_create_depth(362, 189, depth, object_index, {
 		deaths_total: deaths_total,
 		ships_total: ships_total,
@@ -100,7 +101,7 @@ function create_shepard(){
 		super_explosions_total: super_explosions_total,
 		resets_total: resets_total,
 	})
-	with (obj_shepard_respawn_text) {
+	with (obj_shepard_spawn_text) {
 		instance_destroy()	
 	}
 	instance_destroy()
@@ -133,23 +134,23 @@ function kill_shepard(){
 		}
     }
 
-    var _retry = instance_create_depth(_x,_y, depth, obj_shepard_respawn_text)
-	_retry = instance_create_depth(1050, 120, depth, obj_shepard_respawn_text)
+    var _retry = instance_create_depth(_x,_y, depth, obj_shepard_spawn_text)
+	_retry = instance_create_depth(1050, 120, depth, obj_shepard_spawn_text)
 	with(_retry){
 	image_xscale *= 2
 	image_yscale *= 2
 	}
-	_retry = instance_create_depth(440, 220, depth, obj_shepard_respawn_text)
+	_retry = instance_create_depth(440, 220, depth, obj_shepard_spawn_text)
 	with(_retry){
 	image_xscale *= 2
 	image_yscale *= 2
 	}
-	_retry = instance_create_depth(670, 220, depth, obj_shepard_respawn_text)
+	_retry = instance_create_depth(670, 220, depth, obj_shepard_spawn_text)
 	with(_retry){
 	image_xscale *= 2
 	image_yscale *= 2
 	}
-	_retry = instance_create_depth(670, 560, depth, obj_shepard_respawn_text)
+	_retry = instance_create_depth(670, 560, depth, obj_shepard_spawn_text)
 	with(_retry){
 	image_xscale *= 2
 	image_yscale *= 2
@@ -157,10 +158,10 @@ function kill_shepard(){
 }
 
 function gather_movement() {
-	var _left = keyboard_check(vk_left);
-	var _right = keyboard_check(vk_right);
-	var _up = keyboard_check(vk_up);
-	var _down = keyboard_check(vk_down);
+	var _up = keyboard_check(vk_up) || keyboard_check(ord("W")) || keyboard_check(ord("K"));
+	var _down = keyboard_check(vk_down) || keyboard_check(ord("S")) || keyboard_check(ord("J"));
+	var _left = keyboard_check(vk_left) || keyboard_check(ord("A")) || keyboard_check(ord("H"));
+	var _right = keyboard_check(vk_right) || keyboard_check(ord("D")) || keyboard_check(ord("L"));
 
 	if (_left) {
 	  if steps_left < 0 {
@@ -214,13 +215,17 @@ function gather_movement() {
 	            steps_x = 1
 	        } else {
 				if steps_x_persist == 0 {
-					swipe_staff()
+					if image_speed == 0 {
+						swipe_staff()
+					}
 				}
 	            steps_x += 1
 	        }
 	    } else {
 	        if steps_x > 0 {
-				swipe_staff()
+				if image_speed == 0 {
+					swipe_staff()
+				}
 				steps_x = -1
 	        } else {
 	            steps_x -= 1
@@ -307,9 +312,23 @@ function gather_movement() {
 }
 
 function apply_movement() {
-	phy_rotation = 0
+	if image_speed == 0 {
+		phy_rotation = 0
+	}
 	var _move_speed_force = move_speed * force_multiplier;
 	physics_apply_force(x, y, move_x * _move_speed_force, move_y * _move_speed_force);
+	if (keyboard_check_pressed(vk_space) || keyboard_check(ord("Q")) || keyboard_check(ord("E")) || keyboard_check(ord("E")) || keyboard_check(ord("F")))
+	{
+		swipe_staff()
+	}
+	if (keyboard_check_pressed(vk_shift))
+	{
+		swipe_staff()
+	}
+	if (keyboard_check_pressed(vk_control))
+	{
+		swipe_staff()
+	}
 }
 
 function handle_collision() {
@@ -350,6 +369,9 @@ function step_shepard() {
 	if visible == false {
 	    return;
 	}
+	if fuel_total_consumed > 0 {
+		image_speed = 1
+	}
 	gather_movement();
 
 	if (_this_lerp_time > 0) {
@@ -358,11 +380,6 @@ function step_shepard() {
 
 	apply_movement();
 	handle_collision();
-
-	if (keyboard_check_pressed(ord("X")))
-	{
-		swipe_staff()
-	}
 }
 
 function rotate_shepard_alarm_2() {
@@ -375,15 +392,15 @@ function rotate_shepard_alarm_2() {
 		return
 	}
 	if(steps_x_persist > 0) {
-	    apply_lerp_rotation_alarm_2_subtract();
+	    apply_lerp_rotation_alarm_2();
 	    //apply_lerp_rotation_force_subtract();
 	} else {
-	    apply_lerp_rotation_alarm_2_add();
+	    apply_lerp_rotation_alarm_2();
 	    //apply_lerp_rotation_force_add();
 	}
-	if (_this_lerp_time > (0.2 * game_get_speed(gamespeed_fps))) {
-		return
-	}
+	//if (_this_lerp_time > (0.1 * game_get_speed(gamespeed_fps))) {
+	//	return
+	//}
 	if(steps_x_persist > 0) {
 		image_index = 2;
 	} else {
@@ -392,12 +409,12 @@ function rotate_shepard_alarm_2() {
 }
 
 function default_rotate_shepard_alarm_2() {
-    _this_target_angle = 359;
-    _this_start_angle = phy_rotation;
-	_this_force_dir = 0;
-	_this_force_power = 90;
-    _this_lerp_time_initial = 10;
-    _this_lerp_time = _this_lerp_time_initial;
+    var _this_target_angle = 359;
+    var _this_start_angle = phy_rotation;
+	var _this_force_dir = 0;
+	var _this_force_power = 90;
+    var _this_lerp_time_initial = 10;
+    var _this_lerp_time = _this_lerp_time_initial;
 	_this_lerp_time = 15
 	if (steps_x_persist > 0) {
 		steps_x_persist = -1

@@ -1,2 +1,2 @@
-spawn_pen_gate()
+create_pen_gate()
 enabled = true

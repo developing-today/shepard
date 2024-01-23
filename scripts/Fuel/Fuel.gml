@@ -1,8 +1,5 @@
 function create_fuel() {
-    var _fuel = instance_create_depth(415, 110, depth, obj_fuel);
-    _fuel.phy_rotation = 40;
-	_fuel.image_xscale = 0.2;
-	_fuel.image_yscale = 0.2;
+    var _fuel = instance_create_depth(432, 110, depth, obj_fuel);
 }
 
 function handle_fuel_shepard_staff_interaction() {

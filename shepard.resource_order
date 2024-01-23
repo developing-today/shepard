@@ -47,6 +47,7 @@
     {"name":"obj_main_gate_placeholder","order":19,"path":"objects/obj_main_gate_placeholder/obj_main_gate_placeholder.yy",},
     {"name":"spr_squiggle_normal","order":10,"path":"sprites/spr_squiggle_normal/spr_squiggle_normal.yy",},
     {"name":"obj_sun","order":29,"path":"objects/obj_sun/obj_sun.yy",},
+    {"name":"fnt_text_16_bold","order":2,"path":"fonts/fnt_text_16_bold/fnt_text_16_bold.yy",},
     {"name":"obj_with_radius","order":16,"path":"objects/obj_with_radius/obj_with_radius.yy",},
     {"name":"Shared_Lerp","order":3,"path":"scripts/Shared_Lerp/Shared_Lerp.yy",},
     {"name":"spr_wall_special","order":3,"path":"sprites/spr_wall_special/spr_wall_special.yy",},

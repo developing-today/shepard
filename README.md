@@ -4,7 +4,7 @@ to use the game, compile it with game maker studio.
 
 the font used by the developer is proprietary.
 
-you must supply your own font files within (`fonts/fnt_text`)[fonts/fnt_text].
+you must supply your own font files within (`fonts/fnt_text_9_bold`)[fonts/fnt_text_9_bold/] and (`fonts/fnt_text_16_bold`)[fonts/fnt_text_16_bold]..
 
 with the exception of files within (`sounds/`)[sounds],
 this game is provided dual-licensed MIT+APACHE-2.0,

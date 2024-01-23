@@ -317,17 +317,11 @@ function apply_movement() {
 	}
 	var _move_speed_force = move_speed * force_multiplier;
 	physics_apply_force(x, y, move_x * _move_speed_force, move_y * _move_speed_force);
-	if (keyboard_check_pressed(vk_space) || keyboard_check(ord("Q")) || keyboard_check(ord("E")) || keyboard_check(ord("E")) || keyboard_check(ord("F")))
-	{
-		swipe_staff()
-	}
-	if (keyboard_check_pressed(vk_shift))
-	{
-		swipe_staff()
-	}
-	if (keyboard_check_pressed(vk_control))
-	{
-		swipe_staff()
+	if image_speed != 0 {
+		if (keyboard_check_pressed(vk_control) || keyboard_check_pressed(vk_shift) || keyboard_check_pressed(vk_space) || keyboard_check(ord("Q")) || keyboard_check(vk_enter) || keyboard_check(ord("E")) || keyboard_check(ord("F")))
+		{
+			swipe_staff()
+		}
 	}
 }
 

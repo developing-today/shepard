@@ -91,3 +91,13 @@ function kill_pen_gate() {
 // reposition vip placeholder
 // reposition main placeholder
 // reposition pen placeholder
+
+function bouncy_solid_wall() {
+	var _fix = physics_fixture_create();
+	physics_fixture_set_box_shape(_fix, sprite_width / 2, sprite_height / 2);
+	physics_fixture_set_density(_fix, 1000000000); // Set density to 0
+	physics_fixture_set_restitution(_fix, 100); // Optional: set restitution (bounciness)
+	physics_fixture_set_friction(_fix, 0); // Optional: set friction
+	physics_fixture_bind(_fix, id);
+	physics_fixture_delete(_fix);
+}

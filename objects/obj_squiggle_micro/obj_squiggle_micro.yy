@@ -1,10 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_squiggle_tiny",
+  "name": "obj_squiggle_micro",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -37,8 +38,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_squiggle_tiny",
-    "path": "sprites/spr_squiggle_tiny/spr_squiggle_tiny.yy",
+    "name": "spr_squiggle_micro",
+    "path": "sprites/spr_squiggle_micro/spr_squiggle_micro.yy",
   },
   "spriteMaskId": null,
   "visible": true,

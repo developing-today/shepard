@@ -387,14 +387,14 @@ function rotate_shepard_alarm_2() {
 	}
 	if(steps_x_persist > 0) {
 	    apply_lerp_rotation_alarm_2();
-	    //apply_lerp_rotation_force_subtract();
+	    apply_lerp_rotation_force_subtract();
 	} else {
 	    apply_lerp_rotation_alarm_2();
-	    //apply_lerp_rotation_force_add();
+	    apply_lerp_rotation_force_add();
 	}
-	//if (_this_lerp_time > (0.1 * game_get_speed(gamespeed_fps))) {
-	//	return
-	//}
+	if (_this_lerp_time > (0.1 * game_get_speed(gamespeed_fps))) {
+		return
+	}
 	if(steps_x_persist > 0) {
 		image_index = 2;
 	} else {
@@ -405,11 +405,10 @@ function rotate_shepard_alarm_2() {
 function default_rotate_shepard_alarm_2() {
     var _this_target_angle = 359;
     var _this_start_angle = phy_rotation;
-	var _this_force_dir = 0;
+	var _this_force_dir = _this_start_angle;
 	var _this_force_power = 90;
-    var _this_lerp_time_initial = 10;
+    var _this_lerp_time_initial = 1 * game_get_speed(gamespeed_fps);
     var _this_lerp_time = _this_lerp_time_initial;
-	_this_lerp_time = 15
 	if (steps_x_persist > 0) {
 		steps_x_persist = -1
 	} else {

@@ -1,4 +1,5 @@
 function swipe_staff() {
+	swipe_total += 1
 	var _xscale = image_index
 	var _pos = 1
 	if _xscale == 1 {

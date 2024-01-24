@@ -27,7 +27,7 @@ all contributions must meet githubs terms of service.
 
 all contributions must be MIT+APACHE-2.0. (inbound=outbound.)
 
-specific approval must be explicitly given for any other licens on a case-by-case, file-by-file, basis.
+specific approval must be explicitly given for any other license on a case-by-case, file-by-file, basis.
 
 all contributions within the (`assets/`)[assets] or (`docs/`)[docs] directories must also be CC-BY-SA-4.0, in addition to MIT+APACHE-2.0. (inbound=outbound)
 

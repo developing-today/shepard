@@ -173,7 +173,7 @@ TODO
 - certain scenarios caused sun to explode
 - squiggles put things in the sun
 - if squiggles put puddle mobs in sun, something extra bad happens.
-- if you win, the white whole respawns as a sun the game 'resets' but you get a 2x size ship and heavy damage in second run, you are faster they are faster.
+- if you win, the white hole respawns as a sun the game 'resets' but you get a 2x size ship and heavy damage in second run, you are faster they are faster.
 - settings, sound, slow-mode
 - cast (shepard stopped, throws staff at direction had been moving, ?staff boomerangs?)
 - bomb (mob can explode when fast and enough squiggles/kinetic energy, creates 2 mob on respawn)

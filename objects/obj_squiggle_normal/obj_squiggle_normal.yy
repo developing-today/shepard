@@ -4,9 +4,14 @@
   "name": "obj_squiggle_normal",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":1,"eventType":2,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_squiggle_base","path":"objects/obj_squiggle_base/obj_squiggle_base.yy",},"propertyId":{"name":"impulse_strength","path":"objects/obj_squiggle_base/obj_squiggle_base.yy",},"value":"10",},
+  ],
   "parent": {
     "name": "Objects",
     "path": "folders/Objects.yy",
@@ -17,13 +22,13 @@
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
-  "physicsDensity": 0.5,
-  "physicsFriction": 0.2,
+  "physicsDensity": 5.0,
+  "physicsFriction": 0.15,
   "physicsGroup": 1,
   "physicsKinematic": false,
-  "physicsLinearDamping": 0.1,
+  "physicsLinearDamping": 0.15,
   "physicsObject": true,
-  "physicsRestitution": 0.1,
+  "physicsRestitution": 0.5,
   "physicsSensor": false,
   "physicsShape": 1,
   "physicsShapePoints": [

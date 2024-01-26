@@ -4,7 +4,7 @@ function open_pen_gate_quick() {
 	}
 	kill_pen_gate()
     enabled = false
-	alarm[0] = 5 * game_get_speed(gamespeed_fps)
+	alarm[0] = 5 * gamespeed()
 }
 
 function toggle_pen_gate() {
@@ -88,9 +88,6 @@ function kill_pen_gate() {
 		instance_destroy()
 	}
 }
-// reposition vip placeholder
-// reposition main placeholder
-// reposition pen placeholder
 
 function bouncy_solid_wall() {
 	var _fix = physics_fixture_create();

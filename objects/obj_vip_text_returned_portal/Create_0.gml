@@ -33,7 +33,7 @@ if (obj_shepard.deaths_total == 0) {
 lines[array_length(lines)] = "Go!"
 
 current_line = 0;
-alarm[0] = 1 * game_get_speed(gamespeed_fps);
+alarm[0] = 1 * gamespeed();
 with (obj_vip) {
 	fade_vip_for_portal();
 }

@@ -2,23 +2,8 @@ if (instance_exists(obj_shepard)) {
     draw_set_font(fnt_text_16_bold);
 	draw_text(x, y,
 		"score:\n0"+
-		"\ndeaths: \n" + string(obj_shepard.deaths_total	) +
-		"\nvelocity_x: \n" + string(obj_shepard.phy_linear_velocity_x) +
-		"\nvelocity_y: \n" + string(obj_shepard.phy_linear_velocity_y) +
-		"\nvelocity_angle: \n" + string(obj_shepard.phy_angular_velocity) +
-		"\nlast x: \n" + string(obj_shepard.last_x) +
-		"\nlast y: \n" + string(obj_shepard.last_y) +
-		"\nsteps x: \n" + string(obj_shepard.steps_x) +
-		"\nsteps y: \n" + string(obj_shepard.steps_y) +
-		"\nsteps x persist: \n" + string(obj_shepard.steps_x_persist) +
-		"\nsteps y persist: \n" + string(obj_shepard.steps_y_persist) +
-		"\nsteps up: \n" + string(obj_shepard.steps_up) +
-		"\nsteps down: \n" + string(obj_shepard.steps_down) +
-		"\nsteps left: \n" + string(obj_shepard.steps_left) +
-		"\nsteps right: \n" + string(obj_shepard.steps_right) +
 "\ndeaths_total: \n" + string(obj_shepard.deaths_total) +
 "\nships_total: \n" + string(obj_shepard.ships_total) +
-"\nswipe_total: \n" + string(obj_shepard.swipe_total) +
 "\n\nswipe_total_contact_mob: \n" + string(obj_shepard.swipe_total_contact_mob) +
 "\nswipe_total_contact_squiggle_micro: \n" + string(obj_shepard.swipe_total_contact_squiggle_micro) +
 "\nswipe_total_contact_squiggle_tiny: \n" + string(obj_shepard.swipe_total_contact_squiggle_tiny) +
@@ -28,7 +13,6 @@ if (instance_exists(obj_shepard)) {
 "\ndrive_total_contact_squiggle_micro: \n" + string(obj_shepard.drive_total_contact_squiggle_micro) +
 "\ndrive_total_contact_squiggle_tiny: \n" + string(obj_shepard.drive_total_contact_squiggle_tiny) +
 "\ndrive_total_contact_squiggle_normal: \n" + string(obj_shepard.drive_total_contact_squiggle_normal) +
-"\nbash_total: \n" + string(obj_shepard.bash_total) +
 "\nbash_total_contact_mob: \n" + string(obj_shepard.bash_total_contact_mob) +
 "\nbash_total_contact_squiggle_micro: \n" + string(obj_shepard.bash_total_contact_squiggle_micro) +
 "\nbash_total_contact_squiggle_tiny: \n" + string(obj_shepard.bash_total_contact_squiggle_tiny) +
@@ -47,7 +31,6 @@ if (instance_exists(obj_shepard)) {
 "\nmob_total_killed: \n" + string(obj_shepard.mob_total_killed) +
 "\nmob_total_penned: \n" + string(obj_shepard.mob_total_penned) +
 "\nmob_total_donated: \n" + string(obj_shepard.mob_total_donated) +
-"\nmob_total_contact_shepard: \n" + string(obj_shepard.mob_total_contact_shepard) +
 "\nmob_total_contact_mob: \n" + string(obj_shepard.mob_total_contact_mob) +
 "\nmob_total_contact_squiggle_micro: \n" + string(obj_shepard.mob_total_contact_squiggle_micro) +
 "\nmob_total_contact_squiggle_tiny: \n" + string(obj_shepard.mob_total_contact_squiggle_tiny) +

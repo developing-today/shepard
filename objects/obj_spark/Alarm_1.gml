@@ -1,0 +1,1 @@
+destroy_spark_event_alarm_1()

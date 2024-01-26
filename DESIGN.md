@@ -4,6 +4,14 @@ This is our first game with game maker studio 2 and our first game jam.
 
 We are excited to be here and hope you enjoy our game.
 
+It's better to play the game before learning about it,
+
+so we recommend you play the game before reading this document.
+
+Multiple platforms are supported, but we recommend playing on windows with a gaming computer.
+
+It may take a few playthroughs to get the hang of the game.
+
 Game Summary
 
 This is a short game in space. You must try to survive.
@@ -117,6 +125,8 @@ left to right or right to left triggers staff
 diagonal triggers 'drive' which kind of pushes fast
 spacebar triggers shield bash which can be used to push mobs, which can spark
 enter q e trigger machine staff if in ship mode
+f5 r respawn/continue
+f4 restart
 
 gates are each controlled by switches, which are triggered by contact and can have interested outcomes
 

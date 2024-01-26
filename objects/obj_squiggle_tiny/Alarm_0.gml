@@ -1,0 +1,1 @@
+squiggle_tiny_create_normal_alarm_0()

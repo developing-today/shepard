@@ -1,0 +1,1 @@
+handle_squiggle_base_interaction()

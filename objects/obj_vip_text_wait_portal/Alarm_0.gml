@@ -5,7 +5,7 @@ if (current_line < array_length(lines)) {
 		view_visible[1] = true
 		return
 	}
-	var _timer = game_get_speed(gamespeed_fps) * 1;
+	var _timer = gamespeed() * 1;
 	
 	if current_line > 0 && lines[current_line - 1] == -1 {
 		_timer -= 1

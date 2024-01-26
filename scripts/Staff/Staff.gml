@@ -9,7 +9,9 @@ function swipe_staff() {
 	var _y_translate = 32
 	var _x = x + _x_translate
 	var _y = y + _y_translate
-	
+	_x_translate *= random_range(0.9, 1.1); // Adjust _x_translate by ±10%
+    _y_translate *= random_range(0.9, 1.1); // Adjust _y_translate by ±10%
+
 	with (instance_create_depth(_x, _y, depth, obj_shepard_staff)) {
         xscale = 0.5;
         yscale = 0.5;
@@ -36,7 +38,7 @@ function swipe_staff() {
         _this_force_power = 5000;
 
     alarm[2] = 1; // apply_lerp_rotation_alarm_2
-    alarm[1] = 1 * game_get_speed(gamespeed_fps); // instance_destroy()
+    alarm[1] = 1 * gamespeed(); // instance_destroy()
     }
 
     default_rotate_shepard_alarm_2();

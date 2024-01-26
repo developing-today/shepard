@@ -6,8 +6,10 @@ function create_shepard(){
 		portal_follow = false
 	}
 	view_visible[3] = true
-
-	instance_create_depth(362, 189, depth, object_index, {
+	if image_speed > 0 {
+		bash_multiplier = 10000
+	}
+	var _id = instance_create_depth(362, 189, depth, object_index, {
 		deaths_total: deaths_total,
 		ships_total: ships_total,
 		
@@ -101,6 +103,9 @@ function create_shepard(){
 		super_explosions_total: super_explosions_total,
 		resets_total: resets_total,
 	})
+	
+	_id.alarm[0] = 1 * gamespeed()
+	
 	with (obj_shepard_spawn_text) {
 		instance_destroy()	
 	}
@@ -111,30 +116,10 @@ function kill_shepard(){
 	visible = false
 	deaths_total += 1
 	puddle_follow = false
-	var _x = x
-	var _y = y
+	
+	create_spark(1);
 
-    var _i, _inst, _dist, _attempt, _max_attempts = 128;
-
-    for (_i = 0; _i < 2; _i++)
-    {
-        _attempt = 0;
-        do
-        {
-            _x = random_range(x - radius, x + radius);
-            _y = random_range(y - radius, y + radius);
-            _dist = point_distance(x, y, _x, _y);
-            _inst = instance_position(_x,_y,obj_spark);
-            _attempt += 1;
-        }
-        until ((_inst != noone && _dist <= radius) || _attempt > _max_attempts);
-
-        if (_attempt < _max_attempts) {
-            instance_create_depth(_x, _y, depth, obj_spark);
-		}
-    }
-
-    var _retry = instance_create_depth(_x,_y, depth, obj_shepard_spawn_text)
+    var _retry = instance_create_depth(x, y, depth, obj_shepard_spawn_text)
 	_retry = instance_create_depth(1050, 120, depth, obj_shepard_spawn_text)
 	with(_retry){
 	image_xscale *= 2
@@ -318,15 +303,27 @@ function apply_movement() {
 	var _move_speed_force = move_speed * force_multiplier;
 	physics_apply_force(x, y, move_x * _move_speed_force, move_y * _move_speed_force);
 	if image_speed != 0 {
-		if (keyboard_check_pressed(vk_control) || keyboard_check_pressed(vk_shift) || keyboard_check_pressed(vk_space) || keyboard_check(ord("Q")) || keyboard_check(vk_enter) || keyboard_check(ord("E")) || keyboard_check(ord("F")))
+		if (keyboard_check_pressed(vk_control) || keyboard_check_pressed(vk_shift) || keyboard_check(ord("Q")) || keyboard_check(vk_enter) || keyboard_check(ord("E")) || keyboard_check(ord("F")))
 		{
 			swipe_staff()
 		}
 	}
+	if (keyboard_check_pressed(vk_space)) {
+		bash()	
+	}
+}
+
+function bash() {
+	bash_total += 1
+	shield_boost = 0.08 * gamespeed()
+	if shield < shield_boost {
+		shield += shield_boost
+	}
+    physics_apply_force(x, y, move_x * force_multiplier * move_speed * bash_multiplier, move_y * force_multiplier * move_speed * bash_multiplier);
+	create_spark(1)
 }
 
 function handle_collision() {
-	handle_solid_collision();
 	handle_mob_collision();
 }
 
@@ -335,27 +332,12 @@ function handle_mob_collision() {
 	var _notme = true;
 	var _colliding_instance = collision_circle(x, y, radius*1, obj_mob, _precise, _notme);
 	if (_colliding_instance != noone) {
-	    kill_shepard();
-	}
-}
-
-function handle_solid_collision() {
-	var _collision_instance_solid = instance_place(x + (move_x * move_speed), y, obj_solid);
-	if (_collision_instance_solid == noone) {
-	    var _collision_instance = instance_place(x + (move_x * move_speed), y, obj_solid);
-	    if (_collision_instance == noone || _collision_instance.ignore_collision) {
-	        // Adjust position or handle collision
-	     	// todo?
-	    }
-	}
-
-	_collision_instance_solid = instance_place(x, y + (move_y * move_speed), obj_solid)
-	if (_collision_instance_solid == noone) {
-	    var _collision_instance = instance_place(x, y + (move_y * move_speed), obj_solid)
-	    if (_collision_instance == noone || _collision_instance.ignore_collision) {
-	        // Adjust position or handle collision
-			// todo?
-	    }
+		mob_total_contact_shepard += 1
+		if shield > 0 {
+			shield -= 1
+		} else {
+			kill_shepard();
+		}
 	}
 }
 
@@ -392,7 +374,7 @@ function rotate_shepard_alarm_2() {
 	    apply_lerp_rotation_alarm_2();
 	    apply_lerp_rotation_force_add();
 	}
-	if (_this_lerp_time > (0.1 * game_get_speed(gamespeed_fps))) {
+	if (_this_lerp_time > (0.1 * gamespeed())) {
 		return
 	}
 	if(steps_x_persist > 0) {
@@ -402,12 +384,16 @@ function rotate_shepard_alarm_2() {
 	}
 }
 
+function gamespeed() {
+	return game_get_speed(gamespeed_fps);
+}
+
 function default_rotate_shepard_alarm_2() {
     var _this_target_angle = 359;
     var _this_start_angle = phy_rotation;
 	var _this_force_dir = _this_start_angle;
 	var _this_force_power = 90;
-    var _this_lerp_time_initial = 1 * game_get_speed(gamespeed_fps);
+    var _this_lerp_time_initial = 1 * gamespeed();
     var _this_lerp_time = _this_lerp_time_initial;
 	if (steps_x_persist > 0) {
 		steps_x_persist = -1

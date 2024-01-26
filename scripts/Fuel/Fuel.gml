@@ -5,7 +5,7 @@ function create_fuel() {
 function handle_fuel_shepard_staff_interaction() {
 	var _precise = true;  // Whether to use precise collision checking
 	var _notme = true;  // Whether to exclude the instance running the code
-	var _colliding_instance = collision_circle(x, y, radius, obj_shepard_staff, _precise, _notme);
+	var _colliding_instance = collision_circle(x, y, radius*1, obj_shepard_staff, _precise, _notme);
 	if _colliding_instance == noone {
 		return
 	}
@@ -15,7 +15,7 @@ function handle_fuel_shepard_staff_interaction() {
 function handle_fuel_shepard_interaction() {
 	var _precise = true;  // Whether to use precise collision checking
 	var _notme = true;  // Whether to exclude the instance running the code
-	var _colliding_instance = collision_circle(x, y, radius, obj_shepard, _precise, _notme);
+	var _colliding_instance = collision_circle(x, y, radius*1, obj_shepard, _precise, _notme);
 	if _colliding_instance == noone {
 		return
 	}

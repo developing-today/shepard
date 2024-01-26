@@ -1,4 +1,4 @@
-alarm[1] = 1.5 * game_get_speed(gamespeed_fps);
+alarm[1] = 1.5 * gamespeed();
 
 if (instance_exists(obj_vip_gate)) {
     vip_gate_locked += 1

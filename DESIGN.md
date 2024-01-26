@@ -139,6 +139,10 @@ fuel powers ship engine.
 
 squiggles follow you and multiply. they can be broken down, but be steadfast or they will multiply.
 
+mostly balanced to minimize impact to total squiggle population otherwise explosions or you just win and its boring.
+
+there is a more intense version of this game but it would need a lot more balance.
+
 Development Timeline (screenshots in git repo docs folder)
 
 - 1 Pirate Software Game Jam (2 weeks, Whenever Not Working Or Sleeping Or Whatever.)
@@ -169,16 +173,16 @@ Development Timeline (screenshots in git repo docs folder)
   - build bouncy walls
   - make squiggles follow on contact
   - design document rough draft
+  - balance game
+  - add more dialogue
+  
 
 TODO
 - itch.io publish
 - game jam submission
-- bash (shepard move forward relative to xscale with shield woosh sparks)
 - drive (shepard move diagonally with staff forward)
 - portal (shepard teleport if touch without staff first)
 - portal-medium (become moveable available to the player, is where portal sends player)
-- vip returns, provides power-up and/or bonus, status report
-- vip leaves,
 - small creature on vip detaches and becomes a companion to defend with consequences for success failure
 - certain scenarios caused sun to explode
 - squiggles put things in the sun

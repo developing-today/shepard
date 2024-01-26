@@ -12,5 +12,5 @@ if (current_line < array_length(lines)) {
 	}
     alarm[0] = _timer;
 } else {
-    instance_destroy()
+  current_line = array_length(lines) -1	
 }

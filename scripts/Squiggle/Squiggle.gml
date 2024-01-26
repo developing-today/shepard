@@ -387,7 +387,6 @@ function create_squiggle_base_event() {
 }
 
 function create_squiggle_tiny_event() {
-	create_squiggle_base_event();
 	fade_squiggle()
     //var _prev_segment= id; // Initial segment (e.g., the head of the
     //var _segment_distance = 0; // Desired distance between each segment.

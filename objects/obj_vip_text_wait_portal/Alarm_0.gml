@@ -1,16 +1,11 @@
-current_line += 1;
-if (current_line < array_length(lines)) {
-	if lines[current_line] == "\n" {
-		alarm[0] = 1
-		view_visible[1] = true
-		return
-	}
-	var _timer = gamespeed() * 1;
-	
-	if current_line > 0 && lines[current_line - 1] == -1 {
-		_timer -= 1
-	}
-    alarm[0] = _timer;
-} else {
-    instance_destroy()
+if !instance_exists(obj_vip) {
+	instance_destroy()
 }
+
+if (obj_shepard.deaths_total >= array_length(lines)-3) {
+    current_line = ((obj_shepard.deaths_total - array_length(lines)) % 3) + (array_length(lines)-3);
+} else {
+    current_line = obj_shepard.deaths_total;
+}
+
+alarm[0] = gamespeed() * 1;

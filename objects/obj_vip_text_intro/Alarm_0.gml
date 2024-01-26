@@ -13,4 +13,5 @@ if (current_line < array_length(lines)) {
     alarm[0] = _timer;
 } else {
     instance_destroy()
+	obj_vip_text_wait_portal.visible = true
 }

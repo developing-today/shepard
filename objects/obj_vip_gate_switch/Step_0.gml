@@ -5,7 +5,7 @@ if (!portal_collided) {
 	if (_colliding_portal_instance != noone) {
 		view_visible[3] = true;
 		instance_destroy(obj_portal_small);
-		instance_create_depth(515, 75, depth, obj_vip_text_returned_portal);
+		instance_create_depth(515, 40, depth, obj_vip_text_returned_portal);
 	}
 }
 var _colliding_mob_instance = collision_circle(x, y, radius*6, obj_mob_base, _precise, _notme);
